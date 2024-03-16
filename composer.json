@@ -1,5 +1,5 @@
 {
-    "name": "Theiconnz Wholesale Package",
+    "name": "theiconnz/wholesale",
     "description": "This package is used to register wholesale customers from Magento 2.",
     "require": {
         "php": ">=7.0.0",
