@@ -12,7 +12,7 @@ abstract class Registrations extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'AdobeFlow_Wholesale::wholesale';
+    const ADMIN_RESOURCE = 'Theiconnz_Wholesale::wholesale';
 
     /**
      * @param \Magento\Backend\App\Action\Context $context
@@ -31,7 +31,7 @@ abstract class Registrations extends \Magento\Backend\App\Action
      */
     protected function initPage($resultPage)
     {
-        $resultPage->setActiveMenu('AdobeFlow_Wholesale::wholesale')
+        $resultPage->setActiveMenu('Theiconnz_Wholesale::wholesale')
             ->addBreadcrumb(__('Registrations'), __('Registrations'))
             ->addBreadcrumb(__('Registrations'), __('Registrations'));
         return $resultPage;

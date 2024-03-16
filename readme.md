@@ -1,8 +1,8 @@
 # Installation
 
-Install the pakage using composer
+Install the package using composer
 
-composer require Theiconnz/changes
+composer require theiconnz/wholesale
 
 bin/magento setup:upgrade
 

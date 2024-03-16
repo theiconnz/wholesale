@@ -25,7 +25,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>AdobeFlow_Wholesale::wholesale</aclResource>
+        <aclResource>Theiconnz_Wholesale::wholesale</aclResource>
         <dataProvider class="Theiconnz\Wholesale\Ui\Component\Wholesale\DataProvider"
                       name="wholesale_registrations_listing_data_source">
             <settings>

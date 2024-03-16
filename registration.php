@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2023 AdobeFlow. All rights reserved.
+ * Copyright © 2023 Theiconnz. All rights reserved.
  * See COPYING.txt for license details.
  */
 

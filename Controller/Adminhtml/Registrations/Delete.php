@@ -20,7 +20,7 @@ class Delete extends \Magento\Backend\App\Action implements HttpPostActionInterf
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'AdobeFlow_Wholesale::wholesale';
+    const ADMIN_RESOURCE = 'Theiconnz_Wholesale::wholesale';
 
     /**
      * Core registry
@@ -76,7 +76,7 @@ class Delete extends \Magento\Backend\App\Action implements HttpPostActionInterf
         // load layout, set active menu and breadcrumbs
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('AdobeFlow_Wholesale::menu')
+        $resultPage->setActiveMenu('Theiconnz_Wholesale::menu')
             ->addBreadcrumb(__('Wholesales'), __('Wholesales'))
             ->addBreadcrumb(__('Manage Wholesales'), __('Manage Wholesales'));
         return $resultPage;

@@ -93,7 +93,7 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
     {
         $metadata = [];
 
-        if (!$this->getAuthorizationInstance()->isAllowed('AdobeFlow_Wholesale::wholesale')) {
+        if (!$this->getAuthorizationInstance()->isAllowed('Theiconnz_Wholesale::wholesale')) {
             $metadata = [
                 'wholesale_registrations_columns' => [
                     'arguments' => [

@@ -10,7 +10,7 @@
         <section id="wholesale" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
             <label><![CDATA[Wholesale]]></label>
             <tab>Theiconnz</tab>
-            <resource>AdobeFlow_Wholesale::config</resource>
+            <resource>Theiconnz_Wholesale::config</resource>
             <group id="general" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"

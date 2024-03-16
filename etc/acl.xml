@@ -7,9 +7,9 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="AdobeFlow_Wholesale::config" title="Wholesale Configuration" sortOrder="5" />
-                            <resource id="AdobeFlow_Wholesale::menu" title="Wholesale Menu" sortOrder="8" />
-                            <resource id="AdobeFlow_Wholesale::wholesale" title="Wholesale Registrations" sortOrder="10" />
+                            <resource id="Theiconnz_Wholesale::config" title="Wholesale Configuration" sortOrder="5" />
+                            <resource id="Theiconnz_Wholesale::menu" title="Wholesale Menu" sortOrder="8" />
+                            <resource id="Theiconnz_Wholesale::wholesale" title="Wholesale Registrations" sortOrder="10" />
                         </resource>
                     </resource>
                 </resource>

@@ -6,7 +6,7 @@
 
         <referenceContainer name="content">
             <block class="Theiconnz\Wholesale\Block\Wholesale" name="wholesale_form"
-                   template="AdobeFlow_Wholesale::form.phtml">
+                   template="Theiconnz_Wholesale::form.phtml">
 
                 <container name="form.additional.info">
                     <block class="Magento\Captcha\Block\Captcha" name="captcha" after="-" cacheable="false">

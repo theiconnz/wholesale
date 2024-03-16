@@ -35,7 +35,7 @@ class Save extends Action implements HttpPostActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'AdobeFlow_Wholesale::wholesale';
+    const ADMIN_RESOURCE = 'Theiconnz_Wholesale::wholesale';
 
     /**
      * @var DataPersistorInterface
