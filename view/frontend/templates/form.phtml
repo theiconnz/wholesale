@@ -1,0 +1,168 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Theiconnz\Wholesale\Block\Wholesale $block */
+$isenable = $block->isEnable();
+if($isenable) {
+?>
+<form class="form wholesale"
+      id="wholesale_form"
+      method="post"
+      enctype="multipart/form-data"
+      data-mage-init='{"AdobeFlow_Wholesale/js/wholesale":
+              {
+                "validationURL" : "<?= $block->escapeUrl($block->getFormAction()) ?>",
+                "formelement": "#wholesale_form",
+                "successblock": "#wholesale-data-form-update",
+                "formcontainer": ".wholesale-data-form",
+                "formid": "wholesale_form"
+              }
+          }'
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'
+    >
+    <?= $block->getBlockHtml('formkey') ?>
+
+    <div id="wholesale-data-form"
+         class="wholesale-data-form wholesale-data-form-container c_bg_color_primary_light">
+        <fieldset class="fieldset">
+            <div class="field firstname required">
+                <div class="control">
+                    <input name="firstname"
+                           id="firstname"
+                           title="<?= $block->escapeHtmlAttr(__('First name')) ?>"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           placeholder="<?= $block->escapeHtml(__('First name*')) ?>"
+                           data-validate="{required:true, minlength:2}"/>
+                </div>
+            </div>
+            <div class="field lastname required">
+                <div class="control">
+                    <input name="lastname"
+                           id="lastname"
+                           title="<?= $block->escapeHtmlAttr(__('Last name')) ?>"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           placeholder="<?= $block->escapeHtml(__('Last name*')) ?>"
+                           data-validate="{required:true, minlength:2}"/>
+                </div>
+            </div>
+            <div class="field email required">
+                <div class="control">
+                    <input name="email"
+                           id="email"
+                           title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                           value=""
+                           class="input-text"
+                           type="email"
+                           placeholder="<?= $block->escapeHtml(__('Email*')) ?>"
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+
+            <div class="field telephone">
+                <div class="control">
+                    <input name="telephone"
+                           id="telephone"
+                           title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+                           value=""
+                           placeholder="<?= $block->escapeHtml(__('Phone Number*')) ?>"
+                           class="input-text"
+                           type="tel"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+
+            <div class="field business-name">
+                <div class="control">
+                    <input name="business-name"
+                           id="business-name"
+                           title="<?= $block->escapeHtmlAttr(__('Business name')) ?>"
+                           value=""
+                           placeholder="<?= $block->escapeHtml(__('Business name')) ?>"
+                           class="input-text"
+                           type="text"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+
+            <div class="field location">
+                <div class="control">
+                    <input name="location"
+                           id="location"
+                           title="<?= $block->escapeHtmlAttr(__('Location')) ?>"
+                           value=""
+                           placeholder="<?= $block->escapeHtml(__('Location')) ?>"
+                           class="input-text"
+                           type="text" />
+                </div>
+            </div>
+
+            <div class="field describe required">
+                <div class="control">
+                    <textarea name="describe"
+                              id="describe"
+                              title="<?= $block->escapeHtmlAttr(__('Describe your business')) ?>"
+                              class="input-text"
+                              cols="5"
+                              rows="3"
+                              placeholder="<?= $block->escapeHtmlAttr(__('Describe your business')) ?>"
+                              data-validate="{maxlength:1000}"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="field comments required">
+                <div class="control">
+                    <textarea name="comments"
+                              id="comments"
+                              title="<?= $block->escapeHtmlAttr(__('Comments')) ?>"
+                              class="input-text"
+                              cols="5"
+                              rows="3"
+                              placeholder="<?= $block->escapeHtmlAttr(__('Comments')) ?>"
+                              data-validate="{maxlength:1000}"
+                    ></textarea>
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="wholesale-data-form wholesale-data-form-container checkbox-container">
+        <fieldset class="fieldset">
+            <?= $block->getChildHtml('form.additional.info') ?>
+        </fieldset>
+
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+                <button type="submit" title="<?= $block->escapeHtmlAttr(__('ENTER')) ?>"
+                        class="action submit c_btn_primary">
+                    <span><?= $block->escapeHtml(__('ENTER')) ?></span>
+                </button>
+            </div>
+            <span class="mandatory-text">
+            *Mandatory fields.
+            </span>
+        </div>
+    </div>
+
+</form>
+
+
+    <div id="wholesale-success-block" class="wholesale-success-block" style="display: none;">
+        <?php
+        echo $this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId("wholesale-success-block")
+        ->toHtml();?>
+    </div>
+<?php }

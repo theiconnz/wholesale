@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="AdobeFlow_Wholesale::menu" title="Wholesale" translate="title" module="AdobeFlow_Wholesale"
+             parent="AdobeFlow_Base::menu" sortOrder="10" resource="AdobeFlow_Wholesale::menu" />
+
+        <add id="AdobeFlow_Wholesale::wholesale_regs" title="Wholesale Registrations" translate="title" module="AdobeFlow_Wholesale"
+             parent="AdobeFlow_Wholesale::menu" sortOrder="10" resource="AdobeFlow_Wholesale::wholesale"
+             action="wholesale/registrations/" />
+
+        <add id="AdobeFlow_Wholesale::config" title="Wholesale Configuration" translate="title"
+             module="AdobeFlow_Wholesale" sortOrder="30" parent="AdobeFlow_Wholesale::menu"
+             resource="AdobeFlow_Wholesale::config" action="admin/system_config/edit/section/wholesale" />
+    </menu>
+</config>

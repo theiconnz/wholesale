@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <wholesale>
+            <general>
+                <enabled>1</enabled>
+                <signup>1</signup>
+                <customer_group>1</customer_group>
+                <captcha>1</captcha>
+            </general>
+            <email>
+                <stop_email_sent>0</stop_email_sent>
+                <adminnotification_template>wholesale_email_adminnotification_template</adminnotification_template>
+                <customernotification_template>wholesale_email_customernotification_template</customernotification_template>
+            </email>
+            <klaviyo>
+                <enable>0</enable>
+            </klaviyo>
+        </wholesale>
+        <customer>
+            <captcha>
+                <shown_to_logged_in_user>
+                    <wholesale_form>1</wholesale_form>
+                </shown_to_logged_in_user>
+                <always_for>
+                    <wholesale_form>1</wholesale_form>
+                </always_for>
+            </captcha>
+        </customer>
+        <captcha translate="label">
+            <frontend>
+                <areas>
+                    <wholesale_form>
+                        <label>Wholesale Registration Form</label>
+                    </wholesale_form>
+                </areas>
+            </frontend>
+        </captcha>
+    </default>
+</config>

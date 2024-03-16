@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Theiconnz, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="wholesale" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label><![CDATA[Wholesale]]></label>
+            <tab>Theiconnz</tab>
+            <resource>AdobeFlow_Wholesale::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable wholesale</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="signup" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sign up as a customer if not registered</label>
+                    <comment>Sign up Customer after form fill. If value set to No, Admin get a confirmation email.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_group" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Wholesale Customer Group</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="*/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="upgrade_customer_group" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Upgrade Customer group to Wholesale Group after Register</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, Customer will be upgrade to wholesale group. Sign up need to turned on. If not Administrator need to manually upgrade the customer group.</comment>
+                    <depends>
+                        <field id="*/general/signup">1</field>
+                    </depends>
+                </field>
+                <field id="captcha" translate="label" type="select" sortOrder="10" showInDefault="50" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable captcha</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Options</label>
+                <field id="stop_email_sent" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Stop Sending Emails from the system</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sender_email_identity" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Email sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="*/email/stop_email_sent">1</field>
+                    </depends>
+                </field>
+                <field id="recipient_email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send admin emails to</label>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                    </depends>
+                </field>
+                <field id="adminnotification_template" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Admin email template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                    </depends>
+                </field>
+                <field id="stop_customer_upgrade_email" translate="label" type="select" sortOrder="28" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Stop Sending Wholesale Welcome email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                    </depends>
+                </field>
+                <field id="customernotification_template" translate="label comment" type="select" sortOrder="26" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Customer Confirmation template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                        <field id="*/email/stop_customer_upgrade_email">0</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="wholesale" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Attach Document</label>
+                <field id="enable" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Attach Sign up document to email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                    </depends>
+                </field>
+                <field id="signupfile" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="6"
+                       showInDefault="1" showInWebsite="1" >
+                    <label>Upload Sign Up form</label>
+                    <backend_model>Theiconnz\Wholesale\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">wholesale</upload_dir>
+                    <comment>If Attach sign up document to email is enable. This document will be attached to customer upgrade email.</comment>
+                    <depends>
+                        <field id="*/email/stop_email_sent">0</field>
+                        <field id="*/wholesale/enable">1</field>
+                    </depends>
+                </field>
+                <field id="linktofile" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Use link as download link</label>
+                    <comment>Priority is upload file. Please clear upload file.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

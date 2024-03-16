@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="wholesale_email_adminnotification_template" label="Wholesale registration email template"
+              file="adminnotification_email.html" type="html"
+              module="AdobeFlow_Wholesale" area="frontend" />
+    <template id="wholesale_email_customernotification_template" label="Wholesale Customer Sign Up Notification"
+              file="customernotification_email.html" type="html"
+              module="AdobeFlow_Wholesale" area="frontend" />
+</config>

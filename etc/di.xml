@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Theiconnz\Wholesale\Api\Data\WholesaleSearchResultsInterface"
+                type="Theiconnz\Wholesale\Model\WholesaleSearchResults" />
+    <preference for="Theiconnz\Wholesale\Api\Data\WholesaleInterface" type="Theiconnz\Wholesale\Model\Wholesale" />
+    <preference for="Theiconnz\Wholesale\Api\WholesaleRepositoryInterface" type="Theiconnz\Wholesale\Model\WholesaleRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="wholesale_registrations_listing_data_source"
+                      xsi:type="string">Theiconnz\Wholesale\Model\ResourceModel\Wholesale\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+    <type name="Theiconnz\Wholesale\Model\ResourceModel\Wholesale\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wholesale</argument>
+            <argument name="eventPrefix" xsi:type="string">wholesale_wholesale_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">wholesale_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Theiconnz\Wholesale\Model\ResourceModel\Wholesale</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Theiconnz\Wholesale\Api\Data\WholesaleInterface"
+                      xsi:type="string">Theiconnz\Wholesale\Api\WholesaleRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Theiconnz\Wholesale\Api\Data\WholesaleInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">wholesale</item>
+                    <item name="identifierField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Theiconnz\Wholesale\Api\Data\WholesaleInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

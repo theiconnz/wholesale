@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="wholesale" resource="default" engine="innodb" comment="Campaign results Table">
+        <column xsi:type="smallint" name="id" unsigned="false" nullable="false" identity="true"/>
+        <column xsi:type="smallint" name="customer_id" unsigned="false" nullable="true" identity="false"
+                comment="Customer ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="varchar" name="firstname" nullable="false" length="255" comment="Result First Name"/>
+        <column xsi:type="varchar" name="lastname" nullable="true" length="255" comment="Result Last Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="100" comment="Email"/>
+        <column xsi:type="varchar" name="phone" nullable="true" length="30" comment="Phone"/>
+        <column xsi:type="varchar" name="business_name" nullable="false" length="255" comment="Business name"/>
+        <column xsi:type="varchar" name="location" nullable="true" length="255" comment="Business location"/>
+        <column xsi:type="mediumtext" name="describe" nullable="true" comment="Result Content"/>
+        <column xsi:type="mediumtext" name="comment" nullable="true" comment="comment"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="true" identity="false"
+                default="0" comment="Is Active wholesale customer"/>
+        <column xsi:type="smallint" name="signup_email_sent" unsigned="false" nullable="true" identity="false"
+                default="0" comment="Signup email sent"/>
+        <column xsi:type="smallint" name="documentattached" unsigned="false" nullable="true" identity="false"
+                default="0" comment="Signup Document sent"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="WHOLESALE_STORE_ID_STORE_STORE_ID" table="store"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="WHOLESALE_CUSTOMER_ID" indexType="btree">
+            <column name="email"/>
+        </index>
+    </table>
+</schema>
