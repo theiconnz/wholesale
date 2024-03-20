@@ -9,7 +9,7 @@
     <system>
         <section id="wholesale" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
             <label><![CDATA[Wholesale]]></label>
-            <tab>Theiconnz</tab>
+            <tab>theiconnztab</tab>
             <resource>Theiconnz_Wholesale::config</resource>
             <group id="general" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
